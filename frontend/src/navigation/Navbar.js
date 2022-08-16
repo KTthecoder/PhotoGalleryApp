@@ -39,7 +39,7 @@ const Navbar = () => {
             </div>
             <div className='NavbarRight1' style={show ? {display: 'flex'} : {display: 'none'}}>
                 <div className='NavbarRightImgDiv'>
-                    <img src={closeIcon} className='NavbarIconn' alt='Close Icon' onClick={() => setShow(false)}/>
+                    <img src={closeIcon} className='NavbarIcon1' alt='Close Icon' onClick={() => setShow(false)}/>
                     {/* <a href="https://www.flaticon.com/free-icons/close" title="close icons">Close icons created by Pixel perfect - Flaticon</a> */}
                 </div>
                 <Link to='/galery' className='NavbarLink1'>Gallery</Link>

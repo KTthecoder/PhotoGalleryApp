@@ -1,0 +1,327 @@
+.HomeContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+.HomeBanner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    background-image: url('../../assets/imgs/warsaw.jpg');
+    background-position: top;
+    background-size: cover;
+    min-height: 90vh;
+}
+
+.HomeBody{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    flex-direction: column;
+}
+
+.HomeBodyCountDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 50px 0px 40px 0px;
+}
+
+.HomeBodyCountDiv p{
+    font-size: 30px;
+    font-weight: bold;
+    padding: 5px 0px;
+    margin: 0px;
+}
+
+.HomeBodyCountDiv p span{
+    background-color: rgb(213, 187, 92);
+    padding: 5px 8px;
+    margin: 0px 10px 0px 0px;
+    color: white;
+}
+
+.HomeBodyCategoriesDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 20px 0px 60px 0px;
+}
+
+.HomeBodyCategory{
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    margin: 0px 30px;
+    padding-bottom: 3px;
+    transition: all 0.15s ease-in-out;
+    border-bottom: 1px solid white;
+}
+
+.HomeBodyCategory:hover{
+    border-bottom: 1px solid black;
+    transition: all 0.15s ease-in-out;
+}
+
+.HomeBodyItems{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 1600px;
+    flex-wrap: wrap;
+}
+
+.HomeBodyItem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    background-image: url('../../assets/imgs/warsaw.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    margin-bottom: 30px;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+}
+
+.HomeBodyItemIcon{
+    width: 80px;
+    opacity: 0;
+    transition: all 0.15s ease-in-out;
+}
+
+.HomeBodyItemsMore{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 30px 0px;
+}
+
+.HomeBodyItemsMoreBtn{
+    font-size: 17px;
+    background-color: rgb(213, 187, 92);
+    padding: 14px 40px;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+@media(max-width: 1660px){
+    .HomeBodyItems{
+        width: 1300px;
+    }
+
+    .HomeBodyItem{
+        width: 400px;
+        height: 250px;
+    }
+}
+
+@media(max-width: 1400px){
+    .HomeBodyItems{
+        width: 1200px;
+    }
+
+    .HomeBodyItem{
+        width: 550px;
+        height: 350px;
+    }
+}
+
+@media(max-width: 1250px){
+    .HomeBodyItems{
+        width: 1000px;
+    }
+
+    .HomeBodyItem{
+        width: 450px;
+        height: 300px;
+    }
+
+    .HomeBanner{
+        height: 600px;
+        min-height: auto;
+    }
+}
+
+@media(max-width: 1170px){
+    .HomeBodyItems{
+        width: 850px;
+    }
+
+    .HomeBodyItem{
+        width: 390px;
+        height: 230px;
+    }
+
+    .HomeBanner{
+        height: 500px;
+        min-height: auto;
+    }
+}
+
+@media(max-width: 900px){
+    .HomeBodyItems{
+        width: 750px;
+    }
+
+    .HomeBodyItem{
+        width: 350px;
+        height: 230px;
+    }
+
+    .HomeBanner{
+        height: 480px;
+        min-height: auto;
+    }
+}
+
+@media(max-width: 800px){
+    .HomeBodyItems{
+        width: 650px;
+    }
+
+    .HomeBodyItem{
+        width: 300px;
+        height: 200px;
+    }
+
+    .HomeBanner{
+        height: 430px;
+        min-height: auto;
+    }
+}
+
+@media(max-width: 700px){
+    .HomeBodyItems{
+        width: 80%;
+    }
+
+    .HomeBodyItem{
+        width: 100%;
+        height: 340px;
+    }
+
+    .HomeBanner{
+        height: 430px;
+        min-height: auto;
+    }
+
+    .HomeBodyItemsMore{
+        margin-top: 0px;
+        text-align: center;
+    }
+}
+
+@media(max-width: 650px){
+    .HomeContainer{
+        margin-top: 20px;
+    }
+
+    .HomeBodyItem{
+        height: 300px;
+    }
+}
+
+@media(max-width: 590px){
+    .HomeBodyItem{
+        height: 270px;
+    }
+}
+
+@media(max-width: 540px){
+    .HomeBodyItem{
+        height: 270px;
+    }
+
+    .HomeBodyItems{
+        width: 85%;
+    }
+
+    .HomeBodyCategoriesDiv{
+        padding-bottom: 20px;
+        overflow-x: scroll;
+        margin-bottom: 40px;
+        width: 95%;
+        justify-content: flex-start;
+    }
+}
+
+@media(max-width: 500px){
+    .HomeBanner{
+        height: 350px;
+    }
+}
+
+@media(max-width: 470px){
+    .HomeBodyItem{
+        height: 240px;
+    }
+}
+
+@media(max-width: 420px){
+    .HomeBodyItem{
+        height: 220px;
+    }
+
+    .HomeBodyItems{
+        width: 95%;
+    }
+
+    .HomeBanner{
+        height: 300px;
+    }
+}
+
+@media(max-width: 370px){
+    .HomeBodyItem{
+        height: 200px;
+    }
+
+    .HomeBanner{
+        height: 250px;
+    }
+
+    .HomeBodyCountDiv{
+        text-align: center;
+        width: 90%;
+        line-height: 45px;
+        margin: 30px 0px 30px 0px;
+    }
+
+    .HomeBodyCountDiv p span{
+        margin-right: 5px;
+    }
+}
+
+@media(max-width: 320px){
+    .HomeBodyItem{
+        height: 190px;
+    }
+}
+
+@media(min-width: 1200px){
+    .HomeBodyItem:hover{
+        opacity: 0.9;
+        transition: all 0.15s ease-in-out;
+    }
+    
+    .HomeBodyItem:hover .HomeBodyItemIcon{
+        opacity: 1;
+        transition: all 0.15s ease-in-out;
+    }
+
+    .HomeBodyItemsMoreBtn:hover{
+        opacity: 0.9;
+    }
+}
+
