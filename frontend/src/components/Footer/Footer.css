@@ -1,15 +1,141 @@
 .FooterContainer{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
     background-color: #151515;
-    height: 400px;
+    margin-top: 70px;
+    padding: 100px 0px;
+}
+
+.FooterLeft{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    flex-direction: column;
+}
+
+.FooterLeftContactInfo{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    flex-direction: column;
+}
+
+.FooterLeftContactInfo h2{
+    color: rgb(213, 187, 92);
+    margin: 0px 0px 30px 0px;
+}
+
+.FooterLeftContactInfo p{
+    color: white;
+    margin: 0px 0px 40px 0px;
+    font-size: 18px;
+}
+
+.FooterRight{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: auto;
+    flex-direction: column;
+    margin-left: 280px;
+}
+
+.FooterRightIconsHeader{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.FooterRightIconsHeader h2{
+    color: rgb(213, 187, 92);
+    margin: 0px 0px 30px 0px;
+}
+
+.FooterRightIcons{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.FooterRightIcon{
+    width: 30px;
+    margin: 0px 25px 0px 0px;
+    cursor: pointer;
+}
+
+.FooterRightIcon:hover{
+    opacity: 0.8;
+}
+
+.FooterRightInfo{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
     margin-top: 50px;
 }
 
-.FooterContainer p{
+.FooterRightInfo p{
     color: white;
-    font-size: 20px;
-    margin: 0px;
+    font-size: 18px;
+}
+
+@media(max-width: 960px){
+    .FooterRight{
+        margin-left: 150px;
+    }
+}
+
+@media(max-width: 790px){
+    .FooterRight{
+        margin-left: 100px;
+    }
+}
+
+@media(max-width: 740px){
+    .FooterRight{
+        margin-left: 50px;
+    }
+}
+
+@media(max-width: 660px){
+    .FooterRight{
+        margin-left: 0px;
+    }
+
+    .FooterContainer{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .FooterLeft{
+        width: 80%;
+        flex-direction: row;
+    }
+
+    .FooterRight{
+        width: 80%;
+        margin-top: 30px;
+    }
+}
+
+@media(max-width: 540px){
+    .FooterLeft{
+        flex-direction: column;
+    }
+
+    .FooterRight{
+        margin-top: 5px;
+    }
+
+    .FooterRightInfo{
+        margin: 30px 0px 0px 0px;
+    }
 }
