@@ -4,8 +4,34 @@ import { Link } from 'react-router-dom'
 import loupeIcon from '../../assets/icons/loupe.png'
 import warsaw from '../../assets/imgs/warsaw.jpg'
 import hoodie from '../../assets/imgs/hoodie.webp'
+import PhotoItem from '../../components/PhotoItem/PhotoItem'
 
 const HomePage = () => {
+
+  const items = [
+      {id: '1', imgSrc: {warsaw}, alt: 'Warsaw'},
+      {id: '2', imgSrc: {warsaw}, alt: 'Warsaw'},
+      {id: '3', imgSrc: {hoodie}, alt: 'Hoodie'},
+      {id: '4', imgSrc: {warsaw}, alt: 'Warsaw'},
+      {id: '5', imgSrc: {warsaw}, alt: 'Warsaw'},
+      {id: '6', imgSrc: {warsaw}, alt: 'Warsaw'},
+      {id: '7', imgSrc: {hoodie}, alt: 'Hoodie'},
+      {id: '8', imgSrc: {hoodie}, alt: 'Hoodie'},
+      {id: '9', imgSrc: {warsaw}, alt: 'Warsaw'},
+      {id: '10', imgSrc: {warsaw}, alt: 'Warsaw'},
+      {id: '11', imgSrc: {hoodie}, alt: 'Hoodie'},
+      {id: '12', imgSrc: {warsaw}, alt: 'Warsaw'},
+  ]
+
+  const items1 = [
+    {id: '1', imgSrc: {warsaw}, alt: 'Warsaw'},
+    {id: '2', imgSrc: {hoodie}, alt: 'Hoodie'},
+    {id: '3', imgSrc: {warsaw}, alt: 'Warsaw'},
+    {id: '4', imgSrc: {warsaw}, alt: 'Warsaw'},
+    {id: '5', imgSrc: {warsaw}, alt: 'Hoodie'},
+    {id: '6', imgSrc: {warsaw}, alt: 'Warsaw'},
+]
+
   return (
     <div className='HomeContainer'>
       <div className='HomeBanner'>
@@ -23,66 +49,11 @@ const HomePage = () => {
           <Link to='/categories/people' className='HomeBodyCategory'>People</Link>
         </div>
         <div className='HomeBodyItems'>
-          <div className='HomeBodyItem'>
-            <img src={warsaw} className='HomeBodyItemImg' alt='Warsaw'/>
-            <img src={loupeIcon} className='HomeBodyItemIcon' alt='Loupe Icon'/>
-            {/* <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Pixel perfect - Flaticon</a> */}
-          </div>
-          <div className='HomeBodyItem'>
-            <img src={hoodie} className='HomeBodyItemImg' alt='Warsaw'/>
-            <img src={loupeIcon} className='HomeBodyItemIcon' alt='Loupe Icon'/>
-            {/* <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Pixel perfect - Flaticon</a> */}
-          </div>
-          <div className='HomeBodyItem'>
-            <img src={hoodie} className='HomeBodyItemImg' alt='Warsaw'/>
-            <img src={loupeIcon} className='HomeBodyItemIcon' alt='Loupe Icon'/>
-            {/* <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Pixel perfect - Flaticon</a> */}
-          </div>
-          <div className='HomeBodyItem'>
-            <img src={hoodie} className='HomeBodyItemImg' alt='Warsaw'/>
-            <img src={loupeIcon} className='HomeBodyItemIcon' alt='Loupe Icon'/>
-            {/* <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Pixel perfect - Flaticon</a> */}
-          </div>
-          <div className='HomeBodyItem'>
-            <img src={warsaw} className='HomeBodyItemImg' alt='Warsaw'/>
-            <img src={loupeIcon} className='HomeBodyItemIcon' alt='Loupe Icon'/>
-            {/* <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Pixel perfect - Flaticon</a> */}
-          </div>
-          <div className='HomeBodyItem'>
-            <img src={warsaw} className='HomeBodyItemImg' alt='Warsaw'/>
-            <img src={loupeIcon} className='HomeBodyItemIcon' alt='Loupe Icon'/>
-            {/* <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Pixel perfect - Flaticon</a> */}
-          </div>
-          <div className='HomeBodyItem'>
-            <img src={warsaw} className='HomeBodyItemImg' alt='Warsaw'/>
-            <img src={loupeIcon} className='HomeBodyItemIcon' alt='Loupe Icon'/>
-            {/* <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Pixel perfect - Flaticon</a> */}
-          </div>
-          <div className='HomeBodyItem'>
-            <img src={warsaw} className='HomeBodyItemImg' alt='Warsaw'/>
-            <img src={loupeIcon} className='HomeBodyItemIcon' alt='Loupe Icon'/>
-            {/* <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Pixel perfect - Flaticon</a> */}
-          </div>
-          <div className='HomeBodyItem'>
-            <img src={hoodie} className='HomeBodyItemImg' alt='Warsaw'/>
-            <img src={loupeIcon} className='HomeBodyItemIcon' alt='Loupe Icon'/>
-            {/* <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Pixel perfect - Flaticon</a> */}
-          </div>
-          <div className='HomeBodyItem'>
-            <img src={warsaw} className='HomeBodyItemImg' alt='Warsaw'/>
-            <img src={loupeIcon} className='HomeBodyItemIcon' alt='Loupe Icon'/>
-            {/* <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Pixel perfect - Flaticon</a> */}
-          </div>
-          <div className='HomeBodyItem'>
-            <img src={hoodie} className='HomeBodyItemImg' alt='Warsaw'/>
-            <img src={loupeIcon} className='HomeBodyItemIcon' alt='Loupe Icon'/>
-            {/* <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Pixel perfect - Flaticon</a> */}
-          </div>
-          <div className='HomeBodyItem'>
-            <img src={warsaw} className='HomeBodyItemImg' alt='Warsaw'/>
-            <img src={loupeIcon} className='HomeBodyItemIcon' alt='Loupe Icon'/>
-            {/* <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Pixel perfect - Flaticon</a> */}
-          </div>
+          {items && items.map((item) => (
+            <div className='HomeBodyItem' key={item.id}>
+              <PhotoItem imgSrc={item.imgSrc} alt={item.alt} />    
+            </div>
+          ))}
         </div>
         <div className='HomeBodyItemsMore'>
           <p className='HomeBodyItemsMoreBtn'>Show More</p>
@@ -95,36 +66,11 @@ const HomePage = () => {
         <h1>Newest <span>photos.</span></h1>
       </div>
       <div className='HomeBodyItems'>
-        <div className='HomeBodyItem'>
-          <img src={warsaw} className='HomeBodyItemImg' alt='Warsaw'/>
-          <img src={loupeIcon} className='HomeBodyItemIcon' alt='Loupe Icon'/>
-          {/* <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Pixel perfect - Flaticon</a> */}
-        </div>
-        <div className='HomeBodyItem'>
-          <img src={hoodie} className='HomeBodyItemImg' alt='Warsaw'/>
-          <img src={loupeIcon} className='HomeBodyItemIcon' alt='Loupe Icon'/>
-          {/* <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Pixel perfect - Flaticon</a> */}
-        </div>
-        <div className='HomeBodyItem'>
-          <img src={warsaw} className='HomeBodyItemImg' alt='Warsaw'/>
-          <img src={loupeIcon} className='HomeBodyItemIcon' alt='Loupe Icon'/>
-          {/* <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Pixel perfect - Flaticon</a> */}
-        </div>
-        <div className='HomeBodyItem'>
-          <img src={warsaw} className='HomeBodyItemImg' alt='Warsaw'/>
-          <img src={loupeIcon} className='HomeBodyItemIcon' alt='Loupe Icon'/>
-          {/* <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Pixel perfect - Flaticon</a> */}
-        </div>
-        <div className='HomeBodyItem'>
-          <img src={warsaw} className='HomeBodyItemImg' alt='Warsaw'/>
-          <img src={loupeIcon} className='HomeBodyItemIcon' alt='Loupe Icon'/>
-          {/* <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Pixel perfect - Flaticon</a> */}
-        </div>
-        <div className='HomeBodyItem'>
-          <img src={hoodie} className='HomeBodyItemImg' alt='Warsaw'/>
-          <img src={loupeIcon} className='HomeBodyItemIcon' alt='Loupe Icon'/>
-          {/* <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Pixel perfect - Flaticon</a> */}
-        </div>
+        {items1 && items1.map((item) => (
+          <div className='HomeBodyItem' key={item.id}>
+            <PhotoItem imgSrc={item.imgSrc} alt={item.alt} />    
+          </div>
+        ))}
       </div>
       <div className='HomeBodyItemsMore'>
           <p className='HomeBodyItemsMoreBtn'>See All</p>

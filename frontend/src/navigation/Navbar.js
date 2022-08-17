@@ -6,10 +6,12 @@ import pinIcon from '../assets/icons/pinterest.png'
 import tiktokIcon from '../assets/icons/tiktok.png'
 import menuIcon from '../assets/icons/menu.png'
 import closeIcon from '../assets/icons/close.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
     const [show, setShow] = useState(false)
+
+    const navigate = useNavigate()
 
     return (
         <nav className='NavbarContainer'>
@@ -27,14 +29,14 @@ const Navbar = () => {
                 <div className='NavbarMidImgDiv'>
                     <div className='NavbarIconn'></div>
                 </div>
-                <h1>photos.</h1>
+                <h1 onClick={() => navigate('/')}>photos.</h1>
                 <div className='NavbarMidImgDiv'>
                     <img src={menuIcon} className='NavbarIconn' alt='Menu Icon' onClick={() => setShow(true)} />
                     {/* <a href="https://www.flaticon.com/free-icons/open-menu" title="open menu icons">Open menu icons created by Pixel perfect - Flaticon</a> */}
                 </div>
             </div>
             <div className='NavbarRight'>
-                <Link to='/galery' className='NavbarLink'>Gallery</Link>
+                <Link to='/gallery' className='NavbarLink'>Gallery</Link>
                 <Link to='/contact' className='NavbarLink'>Contact</Link>
             </div>
             <div className='NavbarRight1' style={show ? {display: 'flex'} : {display: 'none'}}>
@@ -42,7 +44,7 @@ const Navbar = () => {
                     <img src={closeIcon} className='NavbarIcon1' alt='Close Icon' onClick={() => setShow(false)}/>
                     {/* <a href="https://www.flaticon.com/free-icons/close" title="close icons">Close icons created by Pixel perfect - Flaticon</a> */}
                 </div>
-                <Link to='/galery' className='NavbarLink1'>Gallery</Link>
+                <Link to='/gallery' className='NavbarLink1'>Gallery</Link>
                 <Link to='/contact' className='NavbarLink1'>Contact</Link>
             </div>
         </nav>

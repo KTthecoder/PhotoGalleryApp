@@ -6,8 +6,8 @@
     height: 80px;
     position: sticky;
     top: 0;
-    background-color: white;
     z-index: 1;
+    background-color: white;
 }
 
 .NavbarLeft{
@@ -78,7 +78,7 @@
     }
 }
 
-@media(max-width: 650px){
+@media(max-width: 730px){
     .NavbarContainer{
         flex-direction: column;
         height: auto;

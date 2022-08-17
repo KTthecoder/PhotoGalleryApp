@@ -265,6 +265,12 @@
     }
 }
 
+@media(max-width: 730px){
+    .HomeContainer{
+        margin-top: 20px;
+    }
+}
+
 @media(max-width: 700px){
     .HomeBanner{
         height: 430px;
@@ -286,10 +292,6 @@
 }
 
 @media(max-width: 650px){
-    .HomeContainer{
-        margin-top: 20px;
-    }
-
     .HomeBodyItems{
         width: 500px;
         columns: 2 230px;
