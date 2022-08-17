@@ -2,6 +2,8 @@ import React from 'react'
 import '../HomePage/HomePage.css'
 import { Link } from 'react-router-dom'
 import loupeIcon from '../../assets/icons/loupe.png'
+import warsaw from '../../assets/imgs/warsaw.jpg'
+import hoodie from '../../assets/imgs/hoodie.webp'
 
 const HomePage = () => {
   return (
@@ -22,41 +24,52 @@ const HomePage = () => {
         </div>
         <div className='HomeBodyItems'>
           <div className='HomeBodyItem'>
+            <img src={warsaw} className='HomeBodyItemImg' alt='Warsaw'/>
             <img src={loupeIcon} className='HomeBodyItemIcon' alt='Loupe Icon'/>
             {/* <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Pixel perfect - Flaticon</a> */}
           </div>
           <div className='HomeBodyItem'>
+            <img src={hoodie} className='HomeBodyItemImg' alt='Warsaw'/>
             <img src={loupeIcon} className='HomeBodyItemIcon' alt='Loupe Icon'/>
             {/* <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Pixel perfect - Flaticon</a> */}
           </div>
           <div className='HomeBodyItem'>
+            <img src={hoodie} className='HomeBodyItemImg' alt='Warsaw'/>
             <img src={loupeIcon} className='HomeBodyItemIcon' alt='Loupe Icon'/>
             {/* <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Pixel perfect - Flaticon</a> */}
           </div>
           <div className='HomeBodyItem'>
+            <img src={hoodie} className='HomeBodyItemImg' alt='Warsaw'/>
             <img src={loupeIcon} className='HomeBodyItemIcon' alt='Loupe Icon'/>
             {/* <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Pixel perfect - Flaticon</a> */}
           </div>
           <div className='HomeBodyItem'>
+            <img src={warsaw} className='HomeBodyItemImg' alt='Warsaw'/>
             <img src={loupeIcon} className='HomeBodyItemIcon' alt='Loupe Icon'/>
             {/* <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Pixel perfect - Flaticon</a> */}
           </div>
           <div className='HomeBodyItem'>
+            <img src={warsaw} className='HomeBodyItemImg' alt='Warsaw'/>
             <img src={loupeIcon} className='HomeBodyItemIcon' alt='Loupe Icon'/>
             {/* <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Pixel perfect - Flaticon</a> */}
           </div>
           <div className='HomeBodyItem'>
+            <img src={warsaw} className='HomeBodyItemImg' alt='Warsaw'/>
             <img src={loupeIcon} className='HomeBodyItemIcon' alt='Loupe Icon'/>
             {/* <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Pixel perfect - Flaticon</a> */}
           </div>
-          <div className='HomeBodyItem'>
+          {/* <div className='HomeBodyItem'>
             <img src={loupeIcon} className='HomeBodyItemIcon' alt='Loupe Icon'/>
-            {/* <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Pixel perfect - Flaticon</a> */}
-          </div>
+            <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Pixel perfect - Flaticon</a>
+          </div> */}
+          
         </div>
         <div className='HomeBodyItemsMore'>
           <p className='HomeBodyItemsMoreBtn'>Show More</p>
         </div>
+      </div>
+      <div className='HomeScrollBanner'>
+          <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eget sodales libero.</h2>
       </div>
     </div>
   )

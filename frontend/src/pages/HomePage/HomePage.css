@@ -71,11 +71,11 @@
 }
 
 .HomeBodyItems{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    columns: 3 500px;
+    column-gap: 30px;
     width: 1600px;
     flex-wrap: wrap;
+    align-content: stretch;
 }
 
 .HomeBodyItem{
@@ -83,19 +83,22 @@
     justify-content: center;
     align-items: center;
     width: 500px;
-    background-image: url('../../assets/imgs/warsaw.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 300px;
-    margin-bottom: 30px;
     cursor: pointer;
     transition: all 0.15s ease-in-out;
+    align-content: stretch;
+    margin-bottom: 40px;
+   
+}
+
+.HomeBodyItemImg{
+    width: 100%;
 }
 
 .HomeBodyItemIcon{
     width: 80px;
     opacity: 0;
     transition: all 0.15s ease-in-out;
+    position: absolute;
 }
 
 .HomeBodyItemsMore{
@@ -115,38 +118,71 @@
     cursor: pointer;
 }
 
-@media(max-width: 1660px){
+.HomeScrollBanner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-image: url('../../assets/imgs/warsaw.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+    background-attachment: fixed;
+    margin-top: 30px;
+    position: relative;
+}
+
+.HomeScrollBanner::before{
+    background-color: black;
+    position: absolute;
+    opacity: 0.35;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.HomeScrollBanner h2{
+    color: white;
+    position: relative;
+    font-size: 32px;
+}
+
+@media(max-width: 1650px){
     .HomeBodyItems{
-        width: 1300px;
+        width: 1400px;
+        columns: 3 400px;
     }
 
     .HomeBodyItem{
-        width: 400px;
-        height: 250px;
+        width: auto;
     }
 }
 
-@media(max-width: 1400px){
+@media(max-width: 1460px){
     .HomeBodyItems{
         width: 1200px;
+        columns: 3 350px;
     }
 
     .HomeBodyItem{
-        width: 550px;
-        height: 350px;
+        width: auto;
+    }
+}
+
+@media(max-width: 1270px){
+    .HomeBodyItems{
+        width: 1000px;
+        columns: 3 300px;
+    }
+
+    .HomeBodyItem{
+        width: auto;
     }
 }
 
 @media(max-width: 1250px){
-    .HomeBodyItems{
-        width: 1000px;
-    }
-
-    .HomeBodyItem{
-        width: 450px;
-        height: 300px;
-    }
-
     .HomeBanner{
         height: 600px;
         min-height: auto;
@@ -154,63 +190,58 @@
 }
 
 @media(max-width: 1170px){
-    .HomeBodyItems{
-        width: 850px;
-    }
-
-    .HomeBodyItem{
-        width: 390px;
-        height: 230px;
-    }
-
     .HomeBanner{
         height: 500px;
         min-height: auto;
     }
 }
 
-@media(max-width: 900px){
+@media(max-width: 1050px){
     .HomeBodyItems{
-        width: 750px;
+        width: 850px;
+        columns: 3 300px;
     }
 
     .HomeBodyItem{
-        width: 350px;
-        height: 230px;
+        width: auto;
     }
+}
 
+@media(max-width: 900px){
     .HomeBanner{
         height: 480px;
         min-height: auto;
     }
-}
 
-@media(max-width: 800px){
     .HomeBodyItems{
-        width: 650px;
+        width: 700px;
+        columns: 3 300px;
     }
 
     .HomeBodyItem{
-        width: 300px;
-        height: 200px;
+        width: auto;
     }
+}
 
+@media(max-width: 800px){
     .HomeBanner{
         height: 430px;
         min-height: auto;
     }
 }
 
-@media(max-width: 700px){
+@media(max-width: 750px){
     .HomeBodyItems{
-        width: 80%;
+        width: 600px;
+        columns: 3 200px;
     }
 
     .HomeBodyItem{
-        width: 100%;
-        height: 340px;
+        width: auto;
     }
+}
 
+@media(max-width: 700px){
     .HomeBanner{
         height: 430px;
         min-height: auto;
@@ -227,32 +258,36 @@
         margin-top: 20px;
     }
 
-    .HomeBodyItem{
-        height: 300px;
+    .HomeBodyItems{
+        width: 500px;
+        columns: 2 230px;
+        column-gap: 20px;
     }
-}
 
-@media(max-width: 590px){
     .HomeBodyItem{
-        height: 270px;
+        width: auto;
+        margin-bottom: 20px;
     }
 }
 
 @media(max-width: 540px){
-    .HomeBodyItem{
-        height: 270px;
-    }
-
-    .HomeBodyItems{
-        width: 85%;
-    }
-
     .HomeBodyCategoriesDiv{
         padding-bottom: 20px;
         overflow-x: scroll;
         margin-bottom: 40px;
         width: 95%;
         justify-content: flex-start;
+    }
+
+    .HomeBodyItems{
+        width: 90%;
+        columns: 1 400px;
+        column-gap: 20px;
+    }
+
+    .HomeBodyItem{
+        width: auto;
+        margin-bottom: 30px;
     }
 }
 
@@ -262,31 +297,13 @@
     }
 }
 
-@media(max-width: 470px){
-    .HomeBodyItem{
-        height: 240px;
-    }
-}
-
 @media(max-width: 420px){
-    .HomeBodyItem{
-        height: 220px;
-    }
-
-    .HomeBodyItems{
-        width: 95%;
-    }
-
     .HomeBanner{
         height: 300px;
     }
 }
 
 @media(max-width: 370px){
-    .HomeBodyItem{
-        height: 200px;
-    }
-
     .HomeBanner{
         height: 250px;
     }
@@ -300,12 +317,6 @@
 
     .HomeBodyCountDiv p span{
         margin-right: 5px;
-    }
-}
-
-@media(max-width: 320px){
-    .HomeBodyItem{
-        height: 190px;
     }
 }
 
