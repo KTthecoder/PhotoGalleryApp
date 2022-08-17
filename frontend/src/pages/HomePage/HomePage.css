@@ -106,7 +106,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin: 30px 0px;
+    margin: 50px 0px 30px 0px;
 }
 
 .HomeBodyItemsMoreBtn{
@@ -147,6 +147,30 @@
     color: white;
     position: relative;
     font-size: 32px;
+    width: 90%;
+    text-align: center;
+    line-height: 40px;
+}
+
+.HomeNewestDiv{
+    columns: 3 500px;
+    column-gap: 30px;
+    width: 1600px;
+    flex-wrap: wrap;
+    align-content: stretch;
+    margin-bottom: 60px;
+}
+
+.HomeNewestHeader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    margin: 60px 0px 70px 0px;
+}
+
+.HomeNewestHeader h1 span{
+    color: rgb(213, 187, 92);
 }
 
 @media(max-width: 1650px){
@@ -251,6 +275,14 @@
         margin-top: 0px;
         text-align: center;
     }
+
+    .HomeScrollBanner{
+        height: 500px;
+    }
+
+    .HomeBodyItemsMore{
+        margin-top: 50px;
+    }
 }
 
 @media(max-width: 650px){
@@ -289,17 +321,29 @@
         width: auto;
         margin-bottom: 30px;
     }
+
+    .HomeBodyItemsMore{
+        margin-top: 30px;
+    }
 }
 
 @media(max-width: 500px){
     .HomeBanner{
         height: 350px;
     }
+
+    .HomeScrollBanner h2{
+        font-size: 27px;
+    }
 }
 
 @media(max-width: 420px){
     .HomeBanner{
         height: 300px;
+    }
+
+    .HomeScrollBanner{
+        height: 450px;
     }
 }
 
