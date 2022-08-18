@@ -1,0 +1,279 @@
+.ContactContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 50px;
+    flex-direction: column;
+}
+
+.ContactTop{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 1200px;
+}
+
+.ContactMap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 600px;
+}
+
+.ContactBody{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 40%;
+}
+
+.ContactBottomFormDiv{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    width: 70%;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.ContactInfoDiv{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    flex-direction: column;
+}
+
+.ContactInfoDiv h2{
+    margin: 0px 0px 20px 0px;
+    color: rgb(213, 187, 92);
+}
+
+.ContactInfoDiv p{
+    margin: 0px 0px 20px 0px;
+    font-size: 16.5px;
+}
+
+.ContactInfoDiv p span{
+    margin-right: 5px;
+}
+
+.ContactBottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 1200px;
+    margin-top: 60px;
+    flex-direction: column;
+}
+
+.ContactBottom h1{
+    margin: 0px 0px 30px 0px;
+    color: rgb(213, 187, 92);
+}
+
+.ContactBottomForm{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.ContactBottomFormInp{
+    width: 405px;
+    box-sizing: border-box;
+    font-size: 16px;
+    padding: 14px 18px;
+    outline: none;
+    border: 1.6px solid grey;
+    border-radius: 10px;
+}
+
+.ContactBottomFormInp:focus{
+    border: 1.6px solid rgb(213, 187, 92);
+}
+
+.ContactBottomFormTextArea{
+    width: 100%;
+    padding: 14px 18px;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    height: 250px;
+    resize: vertical;
+    min-height: 250px;
+    margin-top: 30px;
+    outline: none;
+    border: 1.6px solid grey;
+    border-radius: 10px;
+}
+
+.ContactBottomFormTextArea:focus{
+    border: 1.6px solid rgb(213, 187, 92);
+}
+
+.ContactBottomFormBtn{
+    width: 300px;
+    background-color: rgb(213, 187, 92);
+    color: white;
+    font-size: 17px;
+    padding: 20px 0px;
+    margin-top: 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.1s ease-in-out;
+}
+
+@media(max-width: 1290px){
+    .ContactTop{
+        width: 1000px;
+    }
+
+    .ContactBottom{
+        width: 1000px;
+    }
+
+    .ContactBottomFormDiv{
+        width: 85%;
+    }
+}
+
+@media(max-width: 1290px){
+    .ContactTop{
+        width: 800px;
+    }
+
+    .ContactBottom{
+        width: 800px;
+    }
+
+    .ContactBottomFormDiv{
+        width: 85%;
+    }
+
+    .ContactBottomFormInp{
+        width: 325px;
+    }
+
+    .ContactBody{
+        width: 60%;
+    }
+}
+
+@media(max-width: 850px){
+    .ContactTop{
+        width: 600px;
+    }
+
+    .ContactBottom{
+        width: 600px;
+    }
+
+    .ContactBottomFormDiv{
+        width: 100%;
+    }
+
+    .ContactBottomFormInp{
+        width: 280px;
+    }
+
+    .ContactBody{
+        width: 90%;
+    }
+
+    .ContactMap{
+        height: 400px;
+    }
+}
+
+@media(max-width: 850px){
+    .ContactTop{
+        width: 90%;
+    }
+
+    .ContactBottom{
+        width: 90%;
+    }
+
+    .ContactBottomFormDiv{
+        width: 100%;
+    }
+
+    .ContactBottomFormInp{
+        width: 47%;
+    }
+
+    .ContactBody{
+        width: 90%;
+    }
+
+    .ContactMap{
+        height: 400px;
+    }
+}
+
+@media(max-width: 550px){
+    .ContactBottomFormInp{
+        width: 100%;
+    }
+
+    .ContactBottomFormInp:first-child{
+        margin-bottom: 30px;
+    }
+}
+
+@media(max-width: 520px){
+    .ContactBody{
+        width: 100%;
+    }
+}
+
+@media(max-width: 520px){
+    .ContactBody{
+        flex-direction: column;
+    }
+
+    .ContactInfoDiv:first-child{
+        margin-bottom: 30px;
+    }
+
+    .ContactTop{
+        width: 85%;
+    }
+
+    .ContactBottom{
+        width: 85%;
+    }
+
+    .ContactBottomFormDiv h1{
+        font-size: 27px;
+    }
+
+    .ContactBottomFormDiv{
+        margin-top: 50px;
+    }
+}
+
+@media(max-width: 400px){
+    .ContactBottomFormBtn{
+        width: 100%;
+    }
+}
+
+@media(max-width: 360px){
+    .ContactMap{
+        height: 350px;
+    }
+}
+
+@media(min-width: 1200px){
+    .ContactBottomFormBtn:hover{
+        opacity: 0.93;
+        transition: all 0.1s ease-in-out;
+    }
+}
