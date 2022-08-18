@@ -1,7 +1,6 @@
 import React from 'react'
 import '../HomePage/HomePage.css'
 import { Link } from 'react-router-dom'
-import loupeIcon from '../../assets/icons/loupe.png'
 import warsaw from '../../assets/imgs/warsaw.jpg'
 import hoodie from '../../assets/imgs/hoodie.webp'
 import PhotoItem from '../../components/PhotoItem/PhotoItem'
@@ -24,13 +23,13 @@ const HomePage = () => {
   ]
 
   const items1 = [
-    {id: '1', imgSrc: {warsaw}, alt: 'Warsaw'},
-    {id: '2', imgSrc: {hoodie}, alt: 'Hoodie'},
-    {id: '3', imgSrc: {warsaw}, alt: 'Warsaw'},
-    {id: '4', imgSrc: {warsaw}, alt: 'Warsaw'},
-    {id: '5', imgSrc: {warsaw}, alt: 'Hoodie'},
-    {id: '6', imgSrc: {warsaw}, alt: 'Warsaw'},
-]
+      {id: '1', imgSrc: {warsaw}, alt: 'Warsaw'},
+      {id: '2', imgSrc: {hoodie}, alt: 'Hoodie'},
+      {id: '3', imgSrc: {warsaw}, alt: 'Warsaw'},
+      {id: '4', imgSrc: {warsaw}, alt: 'Warsaw'},
+      {id: '5', imgSrc: {warsaw}, alt: 'Hoodie'},
+      {id: '6', imgSrc: {warsaw}, alt: 'Warsaw'},
+  ]
 
   return (
     <div className='HomeContainer'>
@@ -42,11 +41,11 @@ const HomePage = () => {
             <p><span>34+</span> photos on website</p>
         </div>
         <div className='HomeBodyCategoriesDiv'>
-          <Link to='/categories/all' className='HomeBodyCategory'>All</Link>
-          <Link to='/categories/cities' className='HomeBodyCategory'>Cities</Link>
-          <Link to='/categories/interior' className='HomeBodyCategory'>Interiors</Link>
-          <Link to='/categories/clothes' className='HomeBodyCategory'>Clothes</Link>
-          <Link to='/categories/people' className='HomeBodyCategory'>People</Link>
+          <Link to='/gallery/all' className='HomeBodyCategory'>All</Link>
+          <Link to='/gallery/cities' className='HomeBodyCategory'>Cities</Link>
+          <Link to='/gallery/interior' className='HomeBodyCategory'>Interiors</Link>
+          <Link to='/gallery/clothes' className='HomeBodyCategory'>Clothes</Link>
+          <Link to='/gallery/people' className='HomeBodyCategory'>People</Link>
         </div>
         <div className='HomeBodyItems'>
           {items && items.map((item) => (
