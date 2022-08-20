@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from "react"
+import GetCookie from "../components/GetCookie";
 
 const useFetch = (url, method) => {
     const [data, setData] = useState(null);
-    const [error, setError] = useState(null);
 
     useEffect(() => {
         const csrftoken = GetCookie('csrftoken');
@@ -12,18 +12,16 @@ const useFetch = (url, method) => {
                 'Content-Type': 'application/json',
                 'X-CSRFToken': csrftoken,
             }
-            .then(res => res.json())
-            .then((data) => {
-                setData(data)
-            })
-            .catch(err => {
-                console.log('Error: ', err)
-                setError(err)
-            })
         })
-    }, url)
+        .then(res => res.json())
+        .then((data) => {
+            setData(data)
+            console.log(data)
+        })
+        .catch(err => console.log("Error, ", err))
+    }, [])
 
-    return [data, error]
+    return [data]
 }
 
 export default useFetch

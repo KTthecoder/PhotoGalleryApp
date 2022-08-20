@@ -4,10 +4,13 @@ import { Link, useNavigate } from 'react-router-dom'
 import warsaw from '../../assets/imgs/warsaw.jpg'
 import hoodie from '../../assets/imgs/hoodie.webp'
 import PhotoItem from '../../components/PhotoItem/PhotoItem'
+import useFetch from '../../hooks/useFetch'
 
 const HomePage = () => {
 
   const navigate = useNavigate()
+
+  const [ newestPhotos ] = useFetch('http://127.0.0.1:8000/api/photos/newest', 'GET')
 
   const items = [
       {id: '1', imgSrc: {warsaw}, alt: 'Warsaw'},
@@ -22,15 +25,6 @@ const HomePage = () => {
       {id: '10', imgSrc: {warsaw}, alt: 'Warsaw'},
       {id: '11', imgSrc: {hoodie}, alt: 'Hoodie'},
       {id: '12', imgSrc: {warsaw}, alt: 'Warsaw'},
-  ]
-
-  const items1 = [
-      {id: '1', imgSrc: {warsaw}, alt: 'Warsaw'},
-      {id: '2', imgSrc: {hoodie}, alt: 'Hoodie'},
-      {id: '3', imgSrc: {warsaw}, alt: 'Warsaw'},
-      {id: '4', imgSrc: {warsaw}, alt: 'Warsaw'},
-      {id: '5', imgSrc: {warsaw}, alt: 'Hoodie'},
-      {id: '6', imgSrc: {warsaw}, alt: 'Warsaw'},
   ]
 
   return (
@@ -67,9 +61,9 @@ const HomePage = () => {
         <h1>Newest <span>photos.</span></h1>
       </div>
       <div className='HomeBodyItems'>
-        {items1 && items1.map((item) => (
+        {newestPhotos && newestPhotos.map((item) => (
           <div className='HomeBodyItem' key={item.id}>
-            <PhotoItem imgSrc={item.imgSrc} alt={item.alt} />    
+            <PhotoItem imgSrc={"http://127.0.0.1:8000" + item.img} alt={item.alt} />    
           </div>
         ))}
       </div>

@@ -11,7 +11,8 @@ class PhotoCategoryModel(models.Model):
     
 class PhotoModel(models.Model):
     img = models.ImageField(upload_to="Images")
-    category = models.ForeignKey(PhotoCategoryModel, on_delete=models.CASCADE)
+    alt = models.CharField(max_length=100)
+    categoryId = models.ForeignKey(PhotoCategoryModel, related_name='photoCategory', on_delete=models.CASCADE)
     date_created = models.DateField(auto_now_add=True)
     tags = TaggableManager()
 
