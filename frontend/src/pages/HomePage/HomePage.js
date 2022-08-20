@@ -1,11 +1,13 @@
 import React from 'react'
 import '../HomePage/HomePage.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import warsaw from '../../assets/imgs/warsaw.jpg'
 import hoodie from '../../assets/imgs/hoodie.webp'
 import PhotoItem from '../../components/PhotoItem/PhotoItem'
 
 const HomePage = () => {
+
+  const navigate = useNavigate()
 
   const items = [
       {id: '1', imgSrc: {warsaw}, alt: 'Warsaw'},
@@ -55,7 +57,7 @@ const HomePage = () => {
           ))}
         </div>
         <div className='HomeBodyItemsMore'>
-          <p className='HomeBodyItemsMoreBtn'>Show More</p>
+          <p className='HomeBodyItemsMoreBtn' onClick={() => navigate("/gallery/all")}>Show More</p>
         </div>
       </div>
       <div className='HomeScrollBanner'>
@@ -72,7 +74,7 @@ const HomePage = () => {
         ))}
       </div>
       <div className='HomeBodyItemsMore'>
-          <p className='HomeBodyItemsMoreBtn'>See All</p>
+          <p className='HomeBodyItemsMoreBtn' onClick={() => navigate("/gallery/all")}>See All</p>
         </div>
     </div>
   )

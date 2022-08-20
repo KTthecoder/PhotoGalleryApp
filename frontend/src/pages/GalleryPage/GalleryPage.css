@@ -50,7 +50,21 @@
     margin: 30px 0px 50px 0px;
 }
 
-.GalleryHeaderCategory{
+.GalleryHeaderCategoryActive{
+    text-decoration: none;
+    color: rgb(213, 187, 92);
+    margin-right: 25px;
+    font-size: 16.4px;
+    padding-bottom: 3px;
+    transition: all 0.1s ease-in-out;
+}
+
+.GalleryHeaderCategoryActive:hover{
+    color: rgb(213, 187, 92);
+    transition: all 0.1s ease-in-out;
+}
+
+.GalleryHeaderCategoryUnActive{
     text-decoration: none;
     color: black;
     margin-right: 25px;
@@ -59,7 +73,7 @@
     transition: all 0.1s ease-in-out;
 }
 
-.GalleryHeaderCategory:hover{
+.GalleryHeaderCategoryUnActive:hover{
     color: rgb(213, 187, 92);
     transition: all 0.1s ease-in-out;
 }

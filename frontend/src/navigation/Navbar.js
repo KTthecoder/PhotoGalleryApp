@@ -6,7 +6,7 @@ import pinIcon from '../assets/icons/pinterest.png'
 import tiktokIcon from '../assets/icons/tiktok.png'
 import menuIcon from '../assets/icons/menu.png'
 import closeIcon from '../assets/icons/close.png'
-import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
     const [show, setShow] = useState(false)
@@ -16,13 +16,13 @@ const Navbar = () => {
     return (
         <nav className='NavbarContainer'>
             <div className='NavbarLeft'>
-                <img src={fbIcon} className='NavbarIcon' alt='Facebook Icon' />
+                <img src={fbIcon} className='NavbarIcon' alt='Facebook Icon' onClick={() => window.open('https://www.facebook.com/', '_blank')} />
                 {/* <a href="https://www.flaticon.com/free-icons/facebook" title="facebook icons">Facebook icons created by Freepik - Flaticon</a> */}
-                <img src={igIcon} className='NavbarIcon' alt='Instagram Icon' />
+                <img src={igIcon} className='NavbarIcon' alt='Instagram Icon' onClick={() => window.open('https://www.instagram.com/', '_blank')} />
                 {/* <a href="https://www.flaticon.com/free-icons/instagram" title="instagram icons">Instagram icons created by Freepik - Flaticon</a> */}
-                <img src={pinIcon} className='NavbarIcon' alt='Pinterest Icon' />
+                <img src={pinIcon} className='NavbarIcon' alt='Pinterest Icon' onClick={() => window.open('https://pinterest.com/', '_blank')} />
                 {/* <a href="https://www.flaticon.com/free-icons/pinterest" title="pinterest icons">Pinterest icons created by Pixel perfect - Flaticon</a> */}
-                <img src={tiktokIcon} className='NavbarIcon' alt='Tiktok Icon' />
+                <img src={tiktokIcon} className='NavbarIcon' alt='Tiktok Icon' onClick={() => window.open('https://www.tiktok.com/', '_blank')} />
                 {/* <a href="https://www.flaticon.com/free-icons/tiktok" title="tiktok icons">Tiktok icons created by Freepik - Flaticon</a> */}
             </div>
             <div className='NavbarMid'>
@@ -36,19 +36,15 @@ const Navbar = () => {
                 </div>
             </div>
             <div className='NavbarRight'>
-                <NavLink to={"/gallery"} className={({isActive}) => (isActive ? "NavbarLinkActive" : "NavbarLinkUnActive")}>Gallery</NavLink>
+                <NavLink to={"/gallery/all"} className={({isActive}) => (isActive ? "NavbarLinkActive" : "NavbarLinkUnActive")}>Gallery</NavLink>
                 <NavLink to={"/contact"} className={({isActive}) => (isActive ? "NavbarLinkActive" : "NavbarLinkUnActive")}>Contact</NavLink>
-                {/* <Link to='/gallery' className='NavbarLink'>Gallery</Link> */}
-                {/* <Link to='/contact' className='NavbarLink'>Contact</Link> */}
             </div>
             <div className='NavbarRight1' style={show ? {display: 'flex'} : {display: 'none'}}>
                 <div className='NavbarRightImgDiv'>
                     <img src={closeIcon} className='NavbarIcon1' alt='Close Icon' onClick={() => setShow(false)}/>
                     {/* <a href="https://www.flaticon.com/free-icons/close" title="close icons">Close icons created by Pixel perfect - Flaticon</a> */}
                 </div>
-                {/* <Link to='/gallery' className='NavbarLink1'>Gallery</Link>
-                <Link to='/contact' className='NavbarLink1'>Contact</Link> */}
-                <NavLink to={"/gallery"} className={({isActive}) => (isActive ? "NavbarLink1Active" : "NavbarLink1UnActive")}>Gallery</NavLink>
+                <NavLink to={"/gallery/all"} className={({isActive}) => (isActive ? "NavbarLink1Active" : "NavbarLink1UnActive")}>Gallery</NavLink>
                 <NavLink to={"/contact"} className={({isActive}) => (isActive ? "NavbarLink1Active" : "NavbarLink1UnActive")}>Contact</NavLink>
             </div>
         </nav>

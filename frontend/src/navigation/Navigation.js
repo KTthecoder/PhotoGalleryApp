@@ -8,7 +8,6 @@ const Navigation = () => {
   return (
     <Routes>
         <Route exact path='/' element={<HomePage/>} />
-        <Route exact path='/gallery' element={<GalleryPage/>} />
         <Route exact path='/contact' element={<ContactPage/>} />
         <Route exact path='/gallery/:slug' element={<GalleryPage/>} />
     </Routes>

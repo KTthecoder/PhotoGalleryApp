@@ -25,13 +25,13 @@ const Footer = () => {
           <h2>Our Socials</h2>
         </div>
         <div className='FooterRightIcons'>
-            <img src={fbIcon} className='FooterRightIcon' alt='Facebook Icon' />
+            <img src={fbIcon} className='FooterRightIcon' alt='Facebook Icon' onClick={() => window.open('https://www.facebook.com/', '_blank')} />
             {/* <a href="https://www.flaticon.com/free-icons/facebook" title="facebook icons">Facebook icons created by Freepik - Flaticon</a> */}
-            <img src={igIcon} className='FooterRightIcon' alt='Instagram Icon' />
+            <img src={igIcon} className='FooterRightIcon' alt='Instagram Icon' onClick={() => window.open('https://www.instagram.com/', '_blank')} />
             {/* <a href="https://www.flaticon.com/free-icons/instagram" title="instagram icons">Instagram icons created by Freepik - Flaticon</a> */}
-            <img src={pinIcon} className='FooterRightIcon' alt='Pinterest Icon' />
+            <img src={pinIcon} className='FooterRightIcon' alt='Pinterest Icon' onClick={() => window.open('https://pinterest.com/', '_blank')} />
             {/* <a href="https://www.flaticon.com/free-icons/pinterest" title="pinterest icons">Pinterest icons created by Pixel perfect - Flaticon</a> */}
-            <img src={tiktokIcon} className='FooterRightIcon' alt='Tiktok Icon' />
+            <img src={tiktokIcon} className='FooterRightIcon' alt='Tiktok Icon' onClick={() => window.open('https://www.tiktok.com/', '_blank')} />
             {/* <a href="https://www.flaticon.com/free-icons/tiktok" title="tiktok icons">Tiktok icons created by Freepik - Flaticon</a> */}
         </div>
         <div className='FooterRightInfo'>

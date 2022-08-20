@@ -4,7 +4,7 @@ import warsaw from '../../assets/imgs/warsaw.jpg'
 import hoodie from '../../assets/imgs/hoodie.webp'
 import PhotoItem from '../../components/PhotoItem/PhotoItem'
 import loupeIcon from '../../assets/icons/loupe.png'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const GalleryPage = () => {
   const items = [
@@ -30,11 +30,11 @@ const GalleryPage = () => {
           <input type='text' className='GalleryHeaderInp' placeholder='Search for photos...' />
         </div>
         <div className='GalleryHeaderCategoriesDiv'>
-          <Link to='/gallery/all' className='GalleryHeaderCategory'>All</Link>
-          <Link to='/gallery/cities' className='GalleryHeaderCategory'>Cities</Link>
-          <Link to='/gallery/interior' className='GalleryHeaderCategory'>Interiors</Link>
-          <Link to='/gallery/clothes' className='GalleryHeaderCategory'>Clothes</Link>
-          <Link to='/gallery/people' className='GalleryHeaderCategory'>People</Link>
+          <NavLink to={"/gallery/all"} className={({isActive}) => (isActive ? "GalleryHeaderCategoryActive" : "GalleryHeaderCategoryUnActive")}>All</NavLink>
+          <NavLink to={"/gallery/cities"} className={({isActive}) => (isActive ? "GalleryHeaderCategoryActive" : "GalleryHeaderCategoryUnActive")}>Cities</NavLink>
+          <NavLink to={"/gallery/interior"} className={({isActive}) => (isActive ? "GalleryHeaderCategoryActive" : "GalleryHeaderCategoryUnActive")}>Interiors</NavLink>
+          <NavLink to={"/gallery/clothes"} className={({isActive}) => (isActive ? "GalleryHeaderCategoryActive" : "GalleryHeaderCategoryUnActive")}>Clothes</NavLink>
+          <NavLink to={"/gallery/people"} className={({isActive}) => (isActive ? "GalleryHeaderCategoryActive" : "GalleryHeaderCategoryUnActive")}>People</NavLink>
         </div>
       </div>
       <div className='GalleryBody'>
