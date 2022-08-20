@@ -11,13 +11,6 @@ const ContactPage = () => {
       </div>
       <div className='ContactBottom'>
         <div className='ContactBody'>
-          {/* <div className='ContactInfoDiv'>
-            <h1>Contact Info</h1>
-            <p>&bull; Tower, Złota 44</p>
-            <p>&bull; 00-120 Warszawa</p>
-            <p>&bull; contact@ktthecoder.com</p>
-            <p>&bull; info@ktthecoder.com</p>
-          </div> */}
           <div className="ContactInfoDiv">
               <h2>Where to Find Us</h2>
               <p><span>&bull;</span> Tower, Złota 44</p>

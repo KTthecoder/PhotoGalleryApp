@@ -6,7 +6,7 @@ import pinIcon from '../assets/icons/pinterest.png'
 import tiktokIcon from '../assets/icons/tiktok.png'
 import menuIcon from '../assets/icons/menu.png'
 import closeIcon from '../assets/icons/close.png'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
     const [show, setShow] = useState(false)
@@ -36,16 +36,20 @@ const Navbar = () => {
                 </div>
             </div>
             <div className='NavbarRight'>
-                <Link to='/gallery' className='NavbarLink'>Gallery</Link>
-                <Link to='/contact' className='NavbarLink'>Contact</Link>
+                <NavLink to={"/gallery"} className={({isActive}) => (isActive ? "NavbarLinkActive" : "NavbarLinkUnActive")}>Gallery</NavLink>
+                <NavLink to={"/contact"} className={({isActive}) => (isActive ? "NavbarLinkActive" : "NavbarLinkUnActive")}>Contact</NavLink>
+                {/* <Link to='/gallery' className='NavbarLink'>Gallery</Link> */}
+                {/* <Link to='/contact' className='NavbarLink'>Contact</Link> */}
             </div>
             <div className='NavbarRight1' style={show ? {display: 'flex'} : {display: 'none'}}>
                 <div className='NavbarRightImgDiv'>
                     <img src={closeIcon} className='NavbarIcon1' alt='Close Icon' onClick={() => setShow(false)}/>
                     {/* <a href="https://www.flaticon.com/free-icons/close" title="close icons">Close icons created by Pixel perfect - Flaticon</a> */}
                 </div>
-                <Link to='/gallery' className='NavbarLink1'>Gallery</Link>
-                <Link to='/contact' className='NavbarLink1'>Contact</Link>
+                {/* <Link to='/gallery' className='NavbarLink1'>Gallery</Link>
+                <Link to='/contact' className='NavbarLink1'>Contact</Link> */}
+                <NavLink to={"/gallery"} className={({isActive}) => (isActive ? "NavbarLink1Active" : "NavbarLink1UnActive")}>Gallery</NavLink>
+                <NavLink to={"/contact"} className={({isActive}) => (isActive ? "NavbarLink1Active" : "NavbarLink1UnActive")}>Contact</NavLink>
             </div>
         </nav>
     )
