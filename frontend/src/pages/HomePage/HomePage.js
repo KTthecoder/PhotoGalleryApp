@@ -1,31 +1,52 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../HomePage/HomePage.css'
 import { Link, useNavigate } from 'react-router-dom'
-import warsaw from '../../assets/imgs/warsaw.jpg'
-import hoodie from '../../assets/imgs/hoodie.webp'
 import PhotoItem from '../../components/PhotoItem/PhotoItem'
 import useFetch from '../../hooks/useFetch'
+import GetCookie from '../../components/GetCookie'
 
 const HomePage = () => {
 
   const navigate = useNavigate()
 
+  const [page, setPage] = useState('all')
+  const [photosByCategory, setPhotosByCategory] = useState([])
+
   const [ newestPhotos ] = useFetch('http://127.0.0.1:8000/api/photos/newest', 'GET')
 
-  const items = [
-      {id: '1', imgSrc: {warsaw}, alt: 'Warsaw'},
-      {id: '2', imgSrc: {warsaw}, alt: 'Warsaw'},
-      {id: '3', imgSrc: {hoodie}, alt: 'Hoodie'},
-      {id: '4', imgSrc: {warsaw}, alt: 'Warsaw'},
-      {id: '5', imgSrc: {warsaw}, alt: 'Warsaw'},
-      {id: '6', imgSrc: {warsaw}, alt: 'Warsaw'},
-      {id: '7', imgSrc: {hoodie}, alt: 'Hoodie'},
-      {id: '8', imgSrc: {hoodie}, alt: 'Hoodie'},
-      {id: '9', imgSrc: {warsaw}, alt: 'Warsaw'},
-      {id: '10', imgSrc: {warsaw}, alt: 'Warsaw'},
-      {id: '11', imgSrc: {hoodie}, alt: 'Hoodie'},
-      {id: '12', imgSrc: {warsaw}, alt: 'Warsaw'},
-  ]
+  useEffect(() => {
+      const csrftoken = GetCookie('csrftoken');
+      if(page === 'all'){
+        fetch(`http://127.0.0.1:8000/api/photos/newest`, {
+          method: 'GET',
+          headers: {
+              'Content-Type': 'application/json',
+              'X-CSRFToken': csrftoken,
+          }
+          })
+          .then(res => res.json())
+          .then((data) => {
+              setPhotosByCategory(data)
+              console.log(data)
+          })
+          .catch(err => console.log("Error, ", err))
+      }
+      else{
+        fetch(`http://127.0.0.1:8000/api/photos/categories/${page}`, {
+          method: 'GET',
+          headers: {
+              'Content-Type': 'application/json',
+              'X-CSRFToken': csrftoken,
+          }
+          })
+          .then(res => res.json())
+          .then((data) => {
+              setPhotosByCategory(data)
+              console.log(data)
+          })
+          .catch(err => console.log("Error, ", err))
+      }
+  }, [page])
 
   return (
     <div className='HomeContainer'>
@@ -37,18 +58,61 @@ const HomePage = () => {
             <p><span>34+</span> photos on website</p>
         </div>
         <div className='HomeBodyCategoriesDiv'>
-          <Link to='/gallery/all' className='HomeBodyCategory'>All</Link>
-          <Link to='/gallery/cities' className='HomeBodyCategory'>Cities</Link>
-          <Link to='/gallery/interior' className='HomeBodyCategory'>Interiors</Link>
-          <Link to='/gallery/clothes' className='HomeBodyCategory'>Clothes</Link>
-          <Link to='/gallery/people' className='HomeBodyCategory'>People</Link>
+          {page == 'all' ? 
+            <>
+              <p className='HomeBodyCategory' style={{borderBottom: '1px solid black'}} onClick={() => setPage('all')}>All</p>
+              <p className='HomeBodyCategory' onClick={() => setPage('cities')}>Cities</p>
+              <p className='HomeBodyCategory' onClick={() => setPage('interiors')}>Interiors</p>
+              <p className='HomeBodyCategory' onClick={() => setPage('clothes')}>Clothes</p>
+              <p className='HomeBodyCategory' onClick={() => setPage('people')}>People</p>
+            </>
+           
+          : page == 'cities' ? 
+            <>
+              <p className='HomeBodyCategory' onClick={() => setPage('all')}>All</p>
+              <p className='HomeBodyCategory' style={{borderBottom: '1px solid black'}} onClick={() => setPage('cities')}>Cities</p>
+              <p className='HomeBodyCategory' onClick={() => setPage('interiors')}>Interiors</p>
+              <p className='HomeBodyCategory' onClick={() => setPage('clothes')}>Clothes</p>
+              <p className='HomeBodyCategory' onClick={() => setPage('people')}>People</p>
+            </>
+          : page == 'interiors' ? 
+            <>
+              <p className='HomeBodyCategory' onClick={() => setPage('all')}>All</p>
+              <p className='HomeBodyCategory' onClick={() => setPage('cities')}>Cities</p>
+              <p className='HomeBodyCategory' style={{borderBottom: '1px solid black'}} onClick={() => setPage('interiors')}>Interiors</p>
+              <p className='HomeBodyCategory' onClick={() => setPage('clothes')}>Clothes</p>
+              <p className='HomeBodyCategory' onClick={() => setPage('people')}>People</p>
+            </>
+          : page == 'clothes' ? 
+            <>
+              <p className='HomeBodyCategory' onClick={() => setPage('all')}>All</p>
+              <p className='HomeBodyCategory' onClick={() => setPage('cities')}>Cities</p>
+              <p className='HomeBodyCategory' onClick={() => setPage('interiors')}>Interiors</p>
+              <p className='HomeBodyCategory' style={{borderBottom: '1px solid black'}} onClick={() => setPage('clothes')}>Clothes</p>
+              <p className='HomeBodyCategory' onClick={() => setPage('people')}>People</p>
+            </>
+          : page == 'people' ? 
+            <>
+              <p className='HomeBodyCategory' onClick={() => setPage('all')}>All</p>
+              <p className='HomeBodyCategory' onClick={() => setPage('cities')}>Cities</p>
+              <p className='HomeBodyCategory' onClick={() => setPage('interiors')}>Interiors</p>
+              <p className='HomeBodyCategory' onClick={() => setPage('clothes')}>Clothes</p>
+              <p className='HomeBodyCategory' style={{borderBottom: '1px solid black'}}  onClick={() => setPage('people')}>People</p>
+            </>
+          : ''}
         </div>
         <div className='HomeBodyItems'>
-          {items && items.map((item) => (
-            <div className='HomeBodyItem' key={item.id}>
-              <PhotoItem imgSrc={item.imgSrc} alt={item.alt} />    
+          {photosByCategory['response'] == 'There is not any photos in database' ? 
+            <div>
+              <h1>There's no photos in this category</h1>
             </div>
-          ))}
+          : 
+            photosByCategory && photosByCategory.map((item) => (
+              <div className='HomeBodyItem' key={item.id}>
+                <PhotoItem imgSrc={"http://127.0.0.1:8000" + item.img} alt={item.alt} />    
+              </div>
+            ))
+          }
         </div>
         <div className='HomeBodyItemsMore'>
           <p className='HomeBodyItemsMoreBtn' onClick={() => navigate("/gallery/all")}>Show More</p>

@@ -21,6 +21,11 @@ from MainApp.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/photos/newest', NewestPhotos, name='NewestPhotos')
+    
+    path('api/photos/newest', NewestPhotos, name='NewestPhotos'),
+    path('api/photos/categories/<slug:slug>', PhotosByCategorySnippet, name='PhotosByCategorySnippet'),
+
+    path('api/categories/all', AllCategories, name='AllCategories'),
+   
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -63,6 +63,7 @@
     padding-bottom: 3px;
     transition: all 0.15s ease-in-out;
     border-bottom: 1px solid white;
+    cursor: pointer;
 }
 
 .HomeBodyCategory:hover{
