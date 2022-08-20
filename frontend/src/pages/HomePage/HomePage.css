@@ -79,6 +79,14 @@
     align-content: stretch;
 }
 
+.HomeBodyItemsEmpty{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+}
+
 .HomeBodyItem{
     display: flex;
     justify-content: center;

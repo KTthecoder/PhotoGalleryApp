@@ -1,26 +1,48 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../GalleryPage/GalleryPage.css'
-import warsaw from '../../assets/imgs/warsaw.jpg'
-import hoodie from '../../assets/imgs/hoodie.webp'
 import PhotoItem from '../../components/PhotoItem/PhotoItem'
 import loupeIcon from '../../assets/icons/loupe.png'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation, useParams } from 'react-router-dom'
+import GetCookie from '../../components/GetCookie'
 
 const GalleryPage = () => {
-  const items = [
-      {id: '1', imgSrc: {warsaw}, alt: 'Warsaw'},
-      {id: '2', imgSrc: {warsaw}, alt: 'Warsaw'},
-      {id: '3', imgSrc: {hoodie}, alt: 'Hoodie'},
-      {id: '4', imgSrc: {warsaw}, alt: 'Warsaw'},
-      {id: '5', imgSrc: {warsaw}, alt: 'Warsaw'},
-      {id: '6', imgSrc: {warsaw}, alt: 'Warsaw'},
-      {id: '7', imgSrc: {hoodie}, alt: 'Hoodie'},
-      {id: '8', imgSrc: {hoodie}, alt: 'Hoodie'},
-      {id: '9', imgSrc: {warsaw}, alt: 'Warsaw'},
-      {id: '10', imgSrc: {warsaw}, alt: 'Warsaw'},
-      {id: '11', imgSrc: {hoodie}, alt: 'Hoodie'},
-      {id: '12', imgSrc: {warsaw}, alt: 'Warsaw'},
-  ]
+  const { slug } = useParams()
+  const [photos, setPhotos] = useState([])
+  const location = useLocation()
+  
+  useEffect(() => {
+    const csrftoken = GetCookie('csrftoken');
+    if(slug === 'all'){
+      fetch(`http://127.0.0.1:8000/api/photos/newest`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken,
+        }
+        })
+        .then(res => res.json())
+        .then((data) => {
+            setPhotos(data)
+            console.log(data)
+        })
+        .catch(err => console.log("Error, ", err))
+    }
+    else{
+      fetch(`http://127.0.0.1:8000/api/photos/categories/${slug}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken,
+        }
+        })
+        .then(res => res.json())
+        .then((data) => {
+            setPhotos(data)
+            console.log(data)
+        })
+        .catch(err => console.log("Error, ", err))
+    }
+}, [location])
 
   return (
     <div className='GalleryContainer'>
@@ -38,11 +60,17 @@ const GalleryPage = () => {
         </div>
       </div>
       <div className='GalleryBody'>
-        {items && items.map((item) => (
-          <div className='HomeBodyItem' key={item.id}>
-            <PhotoItem imgSrc={item.imgSrc} alt={item.alt} />    
-          </div>
-        ))}
+        {photos['response'] === 'There is not any photos in database' ? 
+            <div className='HomeBodyItemsEmpty' style={{margin: '43px 0px 100px 0px'}}>
+              <h1>There's no photos in this category</h1>
+            </div>
+          : 
+          photos && photos.map((item) => (
+              <div className='HomeBodyItem' key={item.id}>
+                <PhotoItem imgSrc={"http://127.0.0.1:8000" + item.img} alt={item.alt} />    
+              </div>
+            ))
+          }
       </div>
     </div>
   )

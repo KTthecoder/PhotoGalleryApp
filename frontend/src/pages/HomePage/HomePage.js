@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import '../HomePage/HomePage.css'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import PhotoItem from '../../components/PhotoItem/PhotoItem'
 import useFetch from '../../hooks/useFetch'
 import GetCookie from '../../components/GetCookie'
@@ -102,8 +102,8 @@ const HomePage = () => {
           : ''}
         </div>
         <div className='HomeBodyItems'>
-          {photosByCategory['response'] == 'There is not any photos in database' ? 
-            <div>
+          {photosByCategory['response'] === 'There is not any photos in database' ? 
+            <div className='HomeBodyItemsEmpty'>
               <h1>There's no photos in this category</h1>
             </div>
           : 
