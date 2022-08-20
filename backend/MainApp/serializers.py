@@ -1,7 +1,6 @@
-from dataclasses import field
-from pyexpat import model
 from rest_framework import serializers
 from .models import *
+from taggit_serializer.serializers import (TagListSerializerField)
 
 class PhotoCategorySerializer(serializers.ModelSerializer):
     class Meta:
@@ -11,12 +10,13 @@ class PhotoCategorySerializer(serializers.ModelSerializer):
 class PhotoSerializer(serializers.ModelSerializer):
     categoryName = serializers.SerializerMethodField('get_category_Name')
     categorySlug = serializers.SerializerMethodField('get_category_Slug')
+    tags = TagListSerializerField()
     class Meta:
         model = PhotoModel
-        fields = ['id', 'img', 'alt', 'date_created', 'categoryId', 'categoryName', 'categorySlug']
+        fields = ['id', 'img', 'alt', 'date_created', 'tags', 'categoryId', 'categoryName', 'categorySlug']
 
-    def get_category_Name(self, quiz):
-        return quiz.categoryId.name
+    def get_category_Name(self, photo):
+        return photo.categoryId.name
 
-    def get_category_Slug(self, quiz):
-        return quiz.categoryId.slug
+    def get_category_Slug(self, photo):
+        return photo.categoryId.slug

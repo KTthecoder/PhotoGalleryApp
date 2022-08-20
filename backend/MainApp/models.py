@@ -14,7 +14,7 @@ class PhotoModel(models.Model):
     alt = models.CharField(max_length=100)
     categoryId = models.ForeignKey(PhotoCategoryModel, related_name='photoCategory', on_delete=models.CASCADE)
     date_created = models.DateField(auto_now_add=True)
-    tags = TaggableManager()
+    tags = TaggableManager(related_name='tags')
 
     def __str__(self):
         return self.img.url

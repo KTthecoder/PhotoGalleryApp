@@ -24,8 +24,8 @@ urlpatterns = [
     
     path('api/photos/newest', NewestPhotos, name='NewestPhotos'),
     path('api/photos/categories/<slug:slug>', PhotosByCategorySnippet, name='PhotosByCategorySnippet'),
+    path('api/photos/search/<str:search>', SearchPhotos, name='SearchPhotos'),
 
     path('api/categories/all', AllCategories, name='AllCategories'),
-   
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

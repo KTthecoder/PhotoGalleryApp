@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'MainApp',
     'taggit',
     'corsheaders',
+    'taggit_serializer',
 ]
 
 MIDDLEWARE = [

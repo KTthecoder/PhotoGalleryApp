@@ -53,3 +53,20 @@ def AllCategories(request):
     except:
         data['response'] = "Error While Getting Action"
         return Response(data)
+
+# Search for photos
+@api_view(['GET'])
+def SearchPhotos(request, search):
+    data = {}
+    # try:
+    photos = PhotoModel.objects.filter(tags__name__icontains=search)
+    print(photos)
+    if photos.exists():
+        serializer = PhotoSerializer(photos, many = True)
+        return Response(serializer.data)
+    else:
+        data['response'] = "There is no photos with this tags"
+        return Response(data)
+    # except:
+    #     data['response'] = "Error While Getting Action"
+    #     return Response(data)
