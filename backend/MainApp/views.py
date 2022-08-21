@@ -59,10 +59,12 @@ def AllCategories(request):
 def SearchPhotos(request, search):
     data = {}
     try:
-        photos = PhotoModel.objects.filter(tags__name__icontains=search)
-        if photos.exists():
-            serializer = PhotoSerializer(photos, many = True)
-            return Response(serializer.data)
+        photos = PhotoModel.objects.filter(tags__name__icontains=search).distinct()
+        if photos.exists(): 
+            for photo in photos:
+                if photo.id == photo.id: 
+                    serializer = PhotoSerializer(photos, many = True)
+                    return Response(serializer.data)
         else:
             data['response'] = "There is no photos with this tags"
             return Response(data)

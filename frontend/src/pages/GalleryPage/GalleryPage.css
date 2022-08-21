@@ -40,6 +40,13 @@
     border-radius: 0px 15px 15px 0px; 
     outline: none;
     background-color: #f5f5f5;
+    cursor: pointer;
+}
+
+.GalleryHeaderInp p{
+    margin: 0px;
+    padding: 0px;
+    color: grey;
 }
 
 .GalleryHeaderCategoriesDiv{

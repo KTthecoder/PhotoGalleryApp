@@ -11,11 +11,6 @@ const GalleryPage = () => {
   const [photos, setPhotos] = useState([])
   const location = useLocation()
   const navigate = useNavigate()
-
-  const SearchPage = (value) => {
-    navigate(`/search/${value}`)
-    console.log(value)
-  }
   
   useEffect(() => {
     const csrftoken = GetCookie('csrftoken');
@@ -54,8 +49,8 @@ const GalleryPage = () => {
       <div className='GalleryHeader'>
         <div className='GalleryHeaderInpDiv'>
           <img src={loupeIcon} className='GalleryHeaderInpIcon' alt='Loupe Icon' />
-          {/* <input type='text' className='GalleryHeaderInp' placeholder='Search for photos...' onChange={(e) => SearchPage(e.target.value)} /> */}
-          <div className='GalleryHeaderInp' onClick={() => navigate('/search/')}>Search for photos...</div>
+          <input type='text' className='GalleryHeaderInp' placeholder='Search for photos...' onClick={() => navigate('/search/')} />
+          {/* <div className='GalleryHeaderInp' onClick={() => navigate('/search/')}><p>Search for photos...</p></div> */}
 
         </div>
         <div className='GalleryHeaderCategoriesDiv'>
