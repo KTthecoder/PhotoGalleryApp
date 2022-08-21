@@ -25,4 +25,4 @@ class MessageModel(models.Model):
     message = models.TextField()
 
     def __str__(self):
-        return "Message nr " + self.id + ": " + self.email
+        return "Message nr " + str(self.id) + ": " + self.email

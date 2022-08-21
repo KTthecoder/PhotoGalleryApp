@@ -71,3 +71,16 @@ def SearchPhotos(request, search):
     except:
         data['response'] = "Error While Getting Action"
         return Response(data)
+
+# Send Message From Customer
+@api_view(['POST'])
+def SendMessage(request):   
+    data = {}
+    try:
+        serializer = MessageSerializer(data = request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+    except:
+        data['response'] = "Error While Getting Action"
+        return Response(data)

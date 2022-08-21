@@ -27,5 +27,8 @@ urlpatterns = [
     path('api/photos/search/<str:search>', SearchPhotos, name='SearchPhotos'),
 
     path('api/categories/all', AllCategories, name='AllCategories'),
+
+    path('api/message/send', SendMessage, name='SendMessage'),
+    
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -20,3 +20,8 @@ class PhotoSerializer(serializers.ModelSerializer):
 
     def get_category_Slug(self, photo):
         return photo.categoryId.slug
+
+class MessageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MessageModel
+        fields = '__all__'

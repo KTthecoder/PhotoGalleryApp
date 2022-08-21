@@ -4,3 +4,4 @@ from .models import *
 # Register your models here.
 admin.site.register(PhotoCategoryModel)
 admin.site.register(PhotoModel)
+admin.site.register(MessageModel)
