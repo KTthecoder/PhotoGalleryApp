@@ -2,13 +2,20 @@ import React, { useEffect, useState } from 'react'
 import '../GalleryPage/GalleryPage.css'
 import PhotoItem from '../../components/PhotoItem/PhotoItem'
 import loupeIcon from '../../assets/icons/loupe.png'
-import { NavLink, useLocation, useParams } from 'react-router-dom'
+import { NavLink, useLocation, useNavigate, useParams } from 'react-router-dom'
 import GetCookie from '../../components/GetCookie'
+import useFetch from '../../hooks/useFetch'
 
 const GalleryPage = () => {
   const { slug } = useParams()
   const [photos, setPhotos] = useState([])
   const location = useLocation()
+  const navigate = useNavigate()
+
+  const SearchPage = (value) => {
+    navigate(`/search/${value}`)
+    console.log(value)
+  }
   
   useEffect(() => {
     const csrftoken = GetCookie('csrftoken');
@@ -23,7 +30,6 @@ const GalleryPage = () => {
         .then(res => res.json())
         .then((data) => {
             setPhotos(data)
-            console.log(data)
         })
         .catch(err => console.log("Error, ", err))
     }
@@ -38,18 +44,19 @@ const GalleryPage = () => {
         .then(res => res.json())
         .then((data) => {
             setPhotos(data)
-            console.log(data)
         })
         .catch(err => console.log("Error, ", err))
     }
-}, [location])
+  }, [location])
 
   return (
     <div className='GalleryContainer'>
       <div className='GalleryHeader'>
         <div className='GalleryHeaderInpDiv'>
           <img src={loupeIcon} className='GalleryHeaderInpIcon' alt='Loupe Icon' />
-          <input type='text' className='GalleryHeaderInp' placeholder='Search for photos...' />
+          {/* <input type='text' className='GalleryHeaderInp' placeholder='Search for photos...' onChange={(e) => SearchPage(e.target.value)} /> */}
+          <div className='GalleryHeaderInp' onClick={() => navigate('/search/')}>Search for photos...</div>
+
         </div>
         <div className='GalleryHeaderCategoriesDiv'>
           <NavLink to={"/gallery/all"} className={({isActive}) => (isActive ? "GalleryHeaderCategoryActive" : "GalleryHeaderCategoryUnActive")}>All</NavLink>
@@ -62,7 +69,7 @@ const GalleryPage = () => {
       <div className='GalleryBody'>
         {photos['response'] === 'There is not any photos in database' ? 
             <div className='HomeBodyItemsEmpty' style={{margin: '43px 0px 100px 0px'}}>
-              <h1>There's no photos in this category</h1>
+              <h1>There's no any photos in database</h1>
             </div>
           : 
           photos && photos.map((item) => (
