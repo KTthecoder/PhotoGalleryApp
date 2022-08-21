@@ -18,3 +18,11 @@ class PhotoModel(models.Model):
 
     def __str__(self):
         return self.img.url
+
+class MessageModel(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    message = models.TextField()
+
+    def __str__(self):
+        return "Message nr " + self.id + ": " + self.email
