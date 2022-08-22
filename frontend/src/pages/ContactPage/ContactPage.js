@@ -1,7 +1,28 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import '../ContactPage/ContactPage.css'
 
 const ContactPage = () => {
+
+  const SendMessage = (e) => {
+      e.preventDefault()
+      fetch('http://127.0.0.1:8000/api/message/send', {
+          method: "POST",
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: e.target.name.value,
+            email: e.target.email.value,
+            message: e.target.message.value,
+          })
+      })
+      .then(res => res.json())
+      .then((data) => {
+        alert("Message Sent Succesfully!")
+      })
+      .catch(err => console.log("Error, ", err))
+  }
+
   return (
     <div className='ContactContainer'>
       <div className='ContactTop'>
@@ -24,10 +45,10 @@ const ContactPage = () => {
         </div> 
         <div className='ContactBottomFormDiv'>
           <h1>Send us a Message</h1>
-          <form className='ContactBottomForm'>
-            <input type='text' className='ContactBottomFormInp' placeholder='Name*' />
-            <input type='email' className='ContactBottomFormInp' placeholder='Email*' />
-            <textarea placeholder='Your Message*' className='ContactBottomFormTextArea'></textarea>
+          <form className='ContactBottomForm' onSubmit={SendMessage}>
+            <input type='text' className='ContactBottomFormInp' placeholder='Name*' name='name' />
+            <input type='email' className='ContactBottomFormInp' placeholder='Email*' name='email' />
+            <textarea placeholder='Your Message*' className='ContactBottomFormTextArea' name='message'></textarea>
             <button type='submit' className='ContactBottomFormBtn'>Send Message</button>
           </form>
         </div>
