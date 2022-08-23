@@ -1,6 +1,7 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import serializers
+from django.core.exceptions import ObjectDoesNotExist
 
 from .models import *
 from .serializers import *
@@ -83,4 +84,16 @@ def SendMessage(request):
             return Response(serializer.data)
     except:
         data['response'] = "Error While Getting Action"
+        return Response(data)
+
+# Photo Details
+@api_view(['GET'])
+def PhotoDetails(request, id):   
+    data = {}
+    try:
+        photo = PhotoModel.objects.get(id = id)
+        serializer = PhotoSerializer(photo, many = False)
+        return Response(serializer.data)
+    except ObjectDoesNotExist:
+        data['response'] = 'This photo does not exists'
         return Response(data)
