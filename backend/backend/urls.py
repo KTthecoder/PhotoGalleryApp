@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     
     path('api/photos/newest', NewestPhotos, name='NewestPhotos'),
+    path('api/photos/count', DataCount, name='DataCount'),
     path('api/photos/categories/<slug:slug>', PhotosByCategorySnippet, name='PhotosByCategorySnippet'),
     path('api/photos/search/<str:search>', SearchPhotos, name='SearchPhotos'),
     path('api/photos/<int:id>', PhotoDetails, name='PhotoDetails'),

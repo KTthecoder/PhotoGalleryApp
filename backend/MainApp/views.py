@@ -22,6 +22,21 @@ def NewestPhotos(request):
         data['response'] = "Error While Getting Action"
         return Response(data)
 
+@api_view(['GET'])
+def DataCount(request):
+    data = {}
+    try:
+        photos = PhotoModel.objects.all()
+        if photos.exists():
+            count = photos.count()
+            return Response(count)
+        else:
+            data['response'] = "Model is empty"
+            return Response(data)
+    except:
+        data['response'] = "Error While Getting Action"
+        return Response(data)
+
 # 12 Photos filtered by category
 @api_view(['GET'])
 def PhotosByCategorySnippet(request, slug):

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import '../HomePage/HomePage.css'
-import { useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import PhotoItem from '../../components/PhotoItem/PhotoItem'
 import useFetch from '../../hooks/useFetch'
 import GetCookie from '../../components/GetCookie'
+import Footer from '../../components/Footer/Footer.js'
+import Navbar from '../../navigation/Navbar.js'
 
 const HomePage = () => {
 
@@ -13,6 +15,8 @@ const HomePage = () => {
   const [photosByCategory, setPhotosByCategory] = useState([])
 
   const [ newestPhotos ] = useFetch('http://127.0.0.1:8000/api/photos/newest', 'GET')
+  const [ count ] = useFetch('http://127.0.0.1:8000/api/photos/count', 'GET')
+  const location = useLocation()
 
   useEffect(() => {
       const csrftoken = GetCookie('csrftoken');
@@ -27,7 +31,6 @@ const HomePage = () => {
           .then(res => res.json())
           .then((data) => {
               setPhotosByCategory(data)
-              console.log(data)
           })
           .catch(err => console.log("Error, ", err))
       }
@@ -42,20 +45,21 @@ const HomePage = () => {
           .then(res => res.json())
           .then((data) => {
               setPhotosByCategory(data)
-              console.log(data)
           })
           .catch(err => console.log("Error, ", err))
       }
   }, [page])
 
   return (
+    <>
+    <Navbar/>
     <div className='HomeContainer'>
       <div className='HomeBanner'>
 
       </div>
       <div className='HomeBody'>
         <div className='HomeBodyCountDiv'>
-            <p><span>34+</span> photos on website</p>
+            <p><span>{count-1} +</span> photos on website</p>
         </div>
         <div className='HomeBodyCategoriesDiv'>
           {page == 'all' ? 
@@ -108,9 +112,9 @@ const HomePage = () => {
             </div>
           : 
             photosByCategory && photosByCategory.map((item) => (
-              <div className='HomeBodyItem' key={item.id}>
-                <PhotoItem imgSrc={"http://127.0.0.1:8000" + item.img} alt={item.alt} />    
-              </div>
+              <Link to={`/${item.id}`} className='HomeBodyItem' key={item.id} state={{background: location}}>
+                <PhotoItem imgSrc={"http://127.0.0.1:8000" + item.img} alt={item.alt} />  
+              </Link>
             ))
           }
         </div>
@@ -126,7 +130,7 @@ const HomePage = () => {
       </div>
       <div className='HomeBodyItems'>
         {newestPhotos && newestPhotos.map((item) => (
-          <div className='HomeBodyItem' key={item.id}>
+          <div className='HomeBodyItem' key={item.id} onClick={() => navigate(`/${item.id}`)}>
             <PhotoItem imgSrc={"http://127.0.0.1:8000" + item.img} alt={item.alt} />    
           </div>
         ))}
@@ -135,6 +139,9 @@ const HomePage = () => {
           <p className='HomeBodyItemsMoreBtn' onClick={() => navigate("/gallery/all")}>See All</p>
         </div>
     </div>
+    <Footer/>
+    </>
+    
   )
 }
 

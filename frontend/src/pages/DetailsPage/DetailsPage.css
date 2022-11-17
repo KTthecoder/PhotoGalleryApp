@@ -1,0 +1,29 @@
+.DetailsContainer{
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  /* background-color: rgba(91, 112, 131, 0.4); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.DetailsPhotoDiv{
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.DetailsPhoto{
+  width: 100%;
+}
+
+.DetailsIcon{
+  width: 30px;
+  cursor: pointer;
+  position: absolute;
+  top: 30px;
+}

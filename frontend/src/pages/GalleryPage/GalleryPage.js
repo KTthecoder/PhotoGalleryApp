@@ -5,6 +5,9 @@ import loupeIcon from '../../assets/icons/loupe.png'
 import { NavLink, useLocation, useNavigate, useParams } from 'react-router-dom'
 import GetCookie from '../../components/GetCookie'
 import useFetch from '../../hooks/useFetch'
+import Footer from '../../components/Footer/Footer.js'
+import Navbar from '../../navigation/Navbar.js'
+
 
 const GalleryPage = () => {
   const { slug } = useParams()
@@ -45,6 +48,8 @@ const GalleryPage = () => {
   }, [location])
 
   return (
+    <>
+    <Navbar/>
     <div className='GalleryContainer'>
       <div className='GalleryHeader'>
         <div className='GalleryHeaderInpDiv'>
@@ -68,13 +73,15 @@ const GalleryPage = () => {
             </div>
           : 
           photos && photos.map((item) => (
-              <div className='HomeBodyItem' key={item.id}>
+              <div className='HomeBodyItem' key={item.id} onClick={() => navigate(`/${item.id}`)}>
                 <PhotoItem imgSrc={"http://127.0.0.1:8000" + item.img} alt={item.alt} />    
               </div>
             ))
           }
       </div>
     </div>
+    <Footer/>
+    </>
   )
 }
 
