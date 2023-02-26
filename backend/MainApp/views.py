@@ -21,6 +21,21 @@ def NewestPhotos(request):
     except:
         data['response'] = "Error While Getting Action"
         return Response(data)
+    
+@api_view(['GET'])
+def AllPhotos(request):
+    data = {}
+    try:
+        photos = PhotoModel.objects.all()
+        if photos.exists():
+            serializer = PhotoSerializer(photos, many = True)
+            return Response(serializer.data)
+        else:
+            data['response'] = "There is not any photos in database"
+            return Response(data)
+    except:
+        data['response'] = "Error While Getting Action"
+        return Response(data)
 
 @api_view(['GET'])
 def DataCount(request):

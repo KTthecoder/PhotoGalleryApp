@@ -11,7 +11,7 @@
     justify-content: center;
     align-items: center;
     width: 95%;
-    background-image: url('../../assets/imgs/warsaw.jpg');
+    background-image: url('../../assets/imgs/warsaw.webp');
     background-position: top;
     background-size: cover;
     min-height: 90vh;
@@ -101,6 +101,7 @@
 
 .HomeBodyItemImg{
     width: 100%;
+    object-fit: cover;
 }
 
 .HomeBodyItemIcon{
@@ -132,7 +133,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    background-image: url('../../assets/imgs/warsaw.jpg');
+    background-image: url('../../assets/imgs/warsaw.webp');
     background-size: cover;
     background-position: center;
     height: 600px;

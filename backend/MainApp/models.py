@@ -1,5 +1,6 @@
 from django.db import models
 from taggit.managers import TaggableManager
+from django_resized import ResizedImageField
 
 # Create your models here.
 class PhotoCategoryModel(models.Model):
@@ -10,7 +11,7 @@ class PhotoCategoryModel(models.Model):
         return self.name
     
 class PhotoModel(models.Model):
-    img = models.ImageField(upload_to="Images")
+    img = ResizedImageField(force_format="WEBP", quality=80, upload_to="Images")
     alt = models.CharField(max_length=100)
     categoryId = models.ForeignKey(PhotoCategoryModel, related_name='photoCategory', on_delete=models.CASCADE)
     date_created = models.DateField(auto_now_add=True)

@@ -8,7 +8,6 @@ import useFetch from '../../hooks/useFetch'
 import Footer from '../../components/Footer/Footer.js'
 import Navbar from '../../navigation/Navbar.js'
 
-
 const GalleryPage = () => {
   const { slug } = useParams()
   const [photos, setPhotos] = useState([])
@@ -18,7 +17,7 @@ const GalleryPage = () => {
   useEffect(() => {
     const csrftoken = GetCookie('csrftoken');
     if(slug === 'all'){
-      fetch(`http://127.0.0.1:8000/api/photos/newest`, {
+      fetch(`http://127.0.0.1:8000/api/photos/all`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -49,38 +48,37 @@ const GalleryPage = () => {
 
   return (
     <>
-    <Navbar/>
-    <div className='GalleryContainer'>
-      <div className='GalleryHeader'>
-        <div className='GalleryHeaderInpDiv'>
-          <img src={loupeIcon} className='GalleryHeaderInpIcon' alt='Loupe Icon' />
-          <input type='text' className='GalleryHeaderInp' placeholder='Search for photos...' onClick={() => navigate('/search/')} />
-          {/* <div className='GalleryHeaderInp' onClick={() => navigate('/search/')}><p>Search for photos...</p></div> */}
-
+      <Navbar/>
+      <div className='GalleryContainer'>
+        <div className='GalleryHeader'>
+          <div className='GalleryHeaderInpDiv'>
+            <img src={loupeIcon} className='GalleryHeaderInpIcon' alt='Loupe Icon' />
+            <input type='text' className='GalleryHeaderInp' placeholder='Search for photos...' onClick={() => navigate('/search/')} />
+            {/* <div className='GalleryHeaderInp' onClick={() => navigate('/search/')}><p>Search for photos...</p></div> */}
+          </div>
+          <div className='GalleryHeaderCategoriesDiv'>
+            <NavLink to={"/gallery/all"} className={({isActive}) => (isActive ? "GalleryHeaderCategoryActive" : "GalleryHeaderCategoryUnActive")}>All</NavLink>
+            <NavLink to={"/gallery/cities"} className={({isActive}) => (isActive ? "GalleryHeaderCategoryActive" : "GalleryHeaderCategoryUnActive")}>Cities</NavLink>
+            <NavLink to={"/gallery/interiors"} className={({isActive}) => (isActive ? "GalleryHeaderCategoryActive" : "GalleryHeaderCategoryUnActive")}>Interiors</NavLink>
+            <NavLink to={"/gallery/clothes"} className={({isActive}) => (isActive ? "GalleryHeaderCategoryActive" : "GalleryHeaderCategoryUnActive")}>Clothes</NavLink>
+            <NavLink to={"/gallery/people"} className={({isActive}) => (isActive ? "GalleryHeaderCategoryActive" : "GalleryHeaderCategoryUnActive")}>People</NavLink>
+          </div>
         </div>
-        <div className='GalleryHeaderCategoriesDiv'>
-          <NavLink to={"/gallery/all"} className={({isActive}) => (isActive ? "GalleryHeaderCategoryActive" : "GalleryHeaderCategoryUnActive")}>All</NavLink>
-          <NavLink to={"/gallery/cities"} className={({isActive}) => (isActive ? "GalleryHeaderCategoryActive" : "GalleryHeaderCategoryUnActive")}>Cities</NavLink>
-          <NavLink to={"/gallery/interiors"} className={({isActive}) => (isActive ? "GalleryHeaderCategoryActive" : "GalleryHeaderCategoryUnActive")}>Interiors</NavLink>
-          <NavLink to={"/gallery/clothes"} className={({isActive}) => (isActive ? "GalleryHeaderCategoryActive" : "GalleryHeaderCategoryUnActive")}>Clothes</NavLink>
-          <NavLink to={"/gallery/people"} className={({isActive}) => (isActive ? "GalleryHeaderCategoryActive" : "GalleryHeaderCategoryUnActive")}>People</NavLink>
-        </div>
-      </div>
-      <div className='GalleryBody'>
-        {photos['response'] === 'There is not any photos in database' ? 
-            <div className='HomeBodyItemsEmpty' style={{margin: '43px 0px 100px 0px'}}>
-              <h1>There's no any photos in database</h1>
-            </div>
-          : 
-          photos && photos.map((item) => (
-              <div className='HomeBodyItem' key={item.id} onClick={() => navigate(`/${item.id}`)}>
-                <PhotoItem imgSrc={"http://127.0.0.1:8000" + item.img} alt={item.alt} />    
+        <div className='GalleryBody'>
+          {photos['response'] === 'There is not any photos in database' ? 
+              <div className='HomeBodyItemsEmpty' style={{margin: '43px 0px 100px 0px'}}>
+                <h1>There's no any photos in database</h1>
               </div>
-            ))
-          }
+            : 
+            photos && photos.map((item) => (
+                <div className='HomeBodyItem' key={item.id} onClick={() => navigate(`/${item.id}`)}>
+                  <PhotoItem imgSrc={"http://127.0.0.1:8000" + item.img} alt={item.alt} />    
+                </div>
+              ))
+            }
+        </div>
       </div>
-    </div>
-    <Footer/>
+      <Footer/>
     </>
   )
 }
