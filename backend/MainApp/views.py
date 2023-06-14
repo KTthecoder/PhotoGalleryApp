@@ -1,8 +1,6 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from rest_framework import serializers
 from django.core.exceptions import ObjectDoesNotExist
-
 from .models import *
 from .serializers import *
 

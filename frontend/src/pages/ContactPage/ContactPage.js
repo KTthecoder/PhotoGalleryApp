@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import '../ContactPage/ContactPage.css'
 import Footer from '../../components/Footer/Footer.js'
 import Navbar from '../../navigation/Navbar.js'

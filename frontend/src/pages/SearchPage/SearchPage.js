@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import '../GalleryPage/GalleryPage.css'
 import PhotoItem from '../../components/PhotoItem/PhotoItem'
 import loupeIcon from '../../assets/icons/loupe.png'
-import { Navigate, NavLink, useLocation, useNavigate, useParams } from 'react-router-dom'
+import { NavLink, useNavigate, useParams } from 'react-router-dom'
 import GetCookie from '../../components/GetCookie'
 
 const SearchPage = () => {

@@ -4,7 +4,6 @@ import PhotoItem from '../../components/PhotoItem/PhotoItem'
 import loupeIcon from '../../assets/icons/loupe.png'
 import { NavLink, useLocation, useNavigate, useParams } from 'react-router-dom'
 import GetCookie from '../../components/GetCookie'
-import useFetch from '../../hooks/useFetch'
 import Footer from '../../components/Footer/Footer.js'
 import Navbar from '../../navigation/Navbar.js'
 
